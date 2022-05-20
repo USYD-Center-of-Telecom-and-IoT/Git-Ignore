@@ -1,7 +1,7 @@
-# Git-Ignore
-The ignore configuration for all project
+# Guide
 
-# Involved Configurations
+## `.gitignore`
+`.gitignore` should be implemented in every projects
 * `OS Temporary files`
 * `Development & Distribution Folders`
 * `Vscode`
