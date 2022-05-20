@@ -1,7 +1,7 @@
 # Guide
 
 ## `.gitignore`
-`.gitignore` should be implemented in every projects
+`.gitignore` should be implemented in every projects. The ignored files include
 * `OS Temporary files`
 * `Development & Distribution Folders`
 * `Vscode`
