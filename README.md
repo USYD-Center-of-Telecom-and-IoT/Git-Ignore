@@ -25,7 +25,7 @@ git submodule add [repository ssh link] Modules/[repository name]
 		* **spacing**<br>
 		1 line spacing for class methods or different logic blocks<br>
 		2 line spacing for classes and functions (class methods are not included).
-	* Modulation Class Programming Rules
+	* Modulation Class Programming Rules (`Mod_xxx`)
 		* constructor<br>
 		We load all parameters about this modulation itself. For example, OFDM requires subcarrier number, FFT size and subcarrier spacing.
 		* modulate<br>
@@ -38,11 +38,12 @@ git submodule add [repository ssh link] Modules/[repository name]
 		We demodulate the and give the `y`
 		* get_H<br>
 		provide the channel matrix (all variants should be based on this function)
-	* Detection Class Programming Rules
+	* Detection Class Programming Rules (`Detect_xxx`)
 		* constructor<br>
 		We load the constellation map inside.
 		* detect<br>
 		We use `y`, `H` and `noise power` to detect. If we need other parameters, we should add them in this process.
+	* Nerual Network Detection Class Programming Rules (`Detect_NN_xxx`)
 
 ## Matlab Guide
 * use the handle class insteald of the value class. See [https://au.mathworks.com/help/matlab/matlab_oop/comparing-handle-and-value-classes.html](https://au.mathworks.com/help/matlab/matlab_oop/comparing-handle-and-value-classes.html)
