@@ -296,8 +296,9 @@ yarn-error.log*
 node_modules/
 jspm_packages/
 
-# Optional npm cache directory
+# npm
 .npm
+package-lock.json
 
 # Optional eslint cache
 .eslintcache
