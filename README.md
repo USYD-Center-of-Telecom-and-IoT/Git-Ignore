@@ -9,6 +9,7 @@
 	* `JetBrains`
 	* `Matlab`
 	* `Python` (spyder project settings are ignored inside)
+	* `waf` (python binary files are ignored in `Python`)
 * Modularity<br>
 All modules are imported by `git submodule` and stored in the folder `Modules`.
 ```
