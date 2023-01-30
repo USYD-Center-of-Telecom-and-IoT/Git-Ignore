@@ -31,6 +31,9 @@ git submodule add [repository ssh link] Modules/[repository name]
     git commit -m "merge from debug: [the description of new traits]"
     git push
     ```
+* `README.md` category
+	* Install **doctoc** `npm i doctoc -g`
+	* Create the category `doctoc README.md`
 
 ## Interface Guide
 * `Python` & `Matlab` should use similar defination of classes, properties and methods (100% similar is the best).
@@ -74,3 +77,18 @@ classdef [your class name] < handle
 ## Python Guide
 * use numpy as the base type to do any Math operation
 * the dimension format is `[..., (batch-size), row, column]`. Python codes need to support dynamic dimensions (greater than or equal to 2).
+
+## NVM Guide
+* `node -v || node --version` check version
+* `nvm ls` list installed versions of node (via nvm)
+* `nvm install 6.9.2` install specific version of node
+* `nvm use 8.0` Use the latest available 8.0.x release
+* `nvm run 6.10.3 app.js` Run app.js using node 6.10.3
+* `nvm exec 4.8.3 node app.js` Run node `app.js` with the PATH pointing to node 4.8.3
+* `nvm alias default 6.9.2` set default version of node
+* `nvm alias default node` Always default to the latest available node version on a shell
+* `nvm install node` Install the latest available version
+* `nvm use node` Use the latest version
+* `nvm install --lts` Install the latest LTS version
+* `nvm use --lts` Use the latest LTS version
+* `nvm set-colors cgYmW` Set text colors to cyan, green, bold yellow, magenta, and white
