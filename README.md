@@ -79,6 +79,13 @@ classdef [your class name] < handle
 * the dimension format is `[..., (batch-size), row, column]`. Python codes need to support dynamic dimensions (greater than or equal to 2).
 
 ## NVM Guide
+### Debug
+* `***.ps1 cannot be loaded because running scripts is disabled on this system error`
+	* Open PowerShell Console by selecting `Run as Administrator`
+	* type `Get-ExecutionPolicy` to see if `Restricted` (which is the reason)
+	* type `Set-ExecutionPolicy RemoteSigned`
+	* type `Y`
+### Commands
 * `node -v || node --version` check version
 * `nvm ls` list installed versions of node (via nvm)
 * `nvm install 6.9.2` install specific version of node
