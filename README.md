@@ -66,6 +66,63 @@ git submodule add [repository ssh link] Modules/[repository name]
 	We use `y`, `H` and `noise power` to detect. If we need other parameters, we should add them in this process.
 * **Nerual Network Detection Class Programming Rules** (`Detect_NN_xxx`)
 
+## C/C++ Guide
+* Class Inheritance
+	* If the child class does not define its constructor, **it will call its parent's constructor (of no parameter)**
+	* If the child class defines its constructor (with/without parameters), **it will call its parent's constructor (of no parameter)**
+	* If users define a constructor with parameters in **the parent class**, the compiler won't provide **a default constructor of no parameter** and **its child class** must have a constructor explicitly calling its parent's constructor. Please note that the parent constructor has to have at least one parameter same to parameters in the child constructor.
+	```c++
+	class father{
+	public:
+		string f_a;
+		father(string f_a){
+			this->f_a = f_a;
+			cout << "father" << endl;
+		}
+	};
+	class son : public father{
+	public:
+		string f_a;
+		// Wrong! This way presumes that the parent class has a constructor with same parameters but it is not true in this example
+		//son(string f_a){
+		//}
+			
+		// The parent only has a constructor with parameters, so we have to explicitly call it in the child constructor
+		// Way 1: Call parent constructor with constants
+		son(string f_a):father("father"){
+			cout << "son (way 1)" << endl;
+		}
+		// Way 2: Transfer the parameters to the parent construtor
+		son(string f_a, int a):father(f_a){
+			cout << "son (way 2)" << endl;
+		}
+	};
+	```
+* Polymorphism<br>
+The parent class can call its method based on its instance of which subclass. However this requires the method in the parent class to be virtual 
+```c++
+class A{
+public:
+	// define a virtual method in the parent class to support polymorphism
+	virtual void foo(){
+		cout<<"A::foo() is called"<<endl;
+	}
+	// pure virtual function when we don't want to intialize this method in the parent class
+      virtual int area() = 0;
+};
+class B: A{
+public:
+	void foo(){
+		cout<<"B::foo() is called"<<endl;
+	}
+};
+int main(void){
+	A *a = new B();
+	a->foo();	// Here a is of A, but it uses foo() in B
+	return 0;
+}
+```
+
 ## Matlab Guide
 * use the handle class insteald of the value class. See [https://au.mathworks.com/help/matlab/matlab_oop/comparing-handle-and-value-classes.html](https://au.mathworks.com/help/matlab/matlab_oop/comparing-handle-and-value-classes.html)
 ```matlab
