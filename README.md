@@ -85,8 +85,9 @@ git submodule add [repository ssh link] Modules/[repository name]
 		}
 		```
 	* For **multiple parameter operators**, we suggest you to overload it as a **friend** method. If so, you can directly visit parameters' private attributes and lower the memory cost.
-		> Please note that every parameter has to be given.
+		> Please note that every parameter has to be given and friend methods do not belong to this class
 		```
+		// define a friend method directly
 		class A{
 			private:
 			int num;
@@ -95,6 +96,17 @@ git submodule add [repository ssh link] Modules/[repository name]
 				// visit parameters' private attributes and lower the memory cost
 				return a1.num == a2.GetNum();
 			}
+		}
+		// define a friend method directly
+		class A{
+			private:
+			int num;
+			public:
+			friend bool operator == (const A& a1, const A& a2);
+		}
+		bool operator == (const A& a1, const A& a2){
+			// visit parameters' private attributes and lower the memory cost
+			return a1.num == a2.GetNum();
 		}
 		```
 * Class Inheritance
