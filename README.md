@@ -67,6 +67,36 @@ git submodule add [repository ssh link] Modules/[repository name]
 * **Nerual Network Detection Class Programming Rules** (`Detect_NN_xxx`)
 
 ## C/C++ Guide
+* Operator Overload & Friend Methods
+	* For **single parameter operators**, we suggest you to overload it as a method of the class because you can have a pointer `this` to use.
+		> Please note that we don't need to put 1st parameter as the method input, because it is presumes to be the instance of this class pointed by `this`
+		```
+		class A{
+			private:
+			int num;
+			public:
+			// please note we have to nominate this method as const, so `this` will be pointed to a const place without change
+			int GetNum() const{
+			}
+			bool operator == (const A& a){
+				// the input is presumed to be const, so `this` in `GetNum()` must be const
+				return this->num == a.GetNum();
+			}
+		}
+		```
+	* For **multiple parameter operators**, we suggest you to overload it as a **friend** method. If so, you can directly visit parameters' private attributes and lower the memory cost.
+		> Please note that every parameter has to be given.
+		```
+		class A{
+			private:
+			int num;
+			public:
+			friend bool operator == (const A& a1, const A& a2){
+				// visit parameters' private attributes and lower the memory cost
+				return a1.num == a2.GetNum();
+			}
+		}
+		```
 * Class Inheritance
 	* If the child class does not define its constructor, **it will call its parent's constructor (of no parameter)**
 	* If the child class defines its constructor (with/without parameters), **it will call its parent's constructor (of no parameter)**
