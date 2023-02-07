@@ -67,6 +67,37 @@ git submodule add [repository ssh link] Modules/[repository name]
 * **Nerual Network Detection Class Programming Rules** (`Detect_NN_xxx`)
 
 ## C/C++ Guide
+* Class Construction
+	The construction is done when defining the type of a variable.
+	```c++
+	class Father{
+	public:
+		Father(){
+		};
+		Father(int a){
+		};
+	};
+	Father alon;
+	Father david(1);
+	```
+	When we assign a class variable with the construction method, we actually created a nameless object of this class and assign this object to the object. 
+	> Please note that the class cannot have any members over base C/C++ types.
+
+	```c++
+	class Child{
+	private:
+		Father * father;
+	public:
+		Child(){
+			this->father = NULL;
+		};
+		Child(Father * father){
+			this->father = father;
+		};
+	};
+	Child alonSon;
+	alonSon = Child();		// error: Child has a member out of base types in C/C++
+	```
 * Operator Overload & Friend Methods
 	* For **single parameter operators**, we suggest you to overload it as a method of the class because you can have a pointer `this` to use.
 		> Please note that we don't need to put 1st parameter as the method input, because it is presumes to be the instance of this class pointed by `this`
