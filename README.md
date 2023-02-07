@@ -229,3 +229,15 @@ classdef [your class name] < handle
 * `nvm install --lts` Install the latest LTS version
 * `nvm use --lts` Use the latest LTS version
 * `nvm set-colors cgYmW` Set text colors to cyan, green, bold yellow, magenta, and white
+
+## Virtual box
+* `vboxuser is not in the sudoers file .This incident will be reported!`<br>
+add `$username` into `sudo`
+```sh
+su root
+adduser vboxuser sudo
+```
+* Can't open terminals in `Shared Folder`<br>
+```
+sudo adduser $username vboxsf
+```
