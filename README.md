@@ -241,3 +241,35 @@ adduser vboxuser sudo
 ```
 sudo adduser $username vboxsf
 ```
+
+## CMake
+We firstly create `CMakeLists.txt` under the project folder. Then, we create the `build` folder by
+```sh
+cmake .
+```
+Then we go into `build` and run `make`
+```sh
+cd build
+make
+```
+
+## Proxmox
+* cannot login
+```sh
+# check service status
+service pveproxy status
+```
+* `Cluster not ready - no quorum(500)`: this happens because some hosts are out of a cluster
+```sh
+# check the status to verify
+pvecm status
+# check recorded nodes (might be unavailable)
+pvecm nodes
+# delete unavailable nodes
+pvecm delnode <NodeName>
+# delete unavailable nodes from UI
+cd /etc/pve/nodes/
+rm -rf <NodeFolderName>
+# reset active computer number to 1 (this computer in the cluster)
+pvecm expected 1
+```
