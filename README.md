@@ -273,3 +273,14 @@ rm -rf <NodeFolderName>
 # reset active computer number to 1 (this computer in the cluster)
 pvecm expected 1
 ```
+
+## Anaconda Guide
+* If you want to build an environment to test AI using mature 3rd party libraries
+```sh
+conda create -n dev python=3.9 -y
+conda activate dev
+pip install -U pandas scipy scikit-learn matplotlib
+pip install spyder
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install tensorflow==2.13.*
+```
